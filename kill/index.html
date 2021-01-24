@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script> -->
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '被家暴女性反杀案发生地点与空间',
+        //subtext: '纯属虚构',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
+    legend: {
+        left: 'center',
+        top: 'bottom',
+        data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            mark: {show: true},
+            dataView: {show: true, readOnly: false},
+            magicType: {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    series: [
+        {
+            name: '发生地点',
+            type: 'pie',
+            radius: [50, 110],
+            center: ['35%', '50%'],
+            color:[
+                '#DF0101',
+                '#FA8258',
+                '#FF4000',
+                '#FF8000',
+                '#FE642E',
+                '#F7BE81',
+                '#F7D358',
+                '#F5A9A9'
+            ],
+            //roseType: 'radius',
+            label: {
+                show: true
+            },
+            emphasis: {
+                label: {
+                    show: true
+                }
+            },
+            data: [
+                {value: 189, name: '家中'},
+                {value: 2, name: '宾馆'},
+                {value: 2, name: '车上'},
+                {value: 1, name: '麻将馆'},
+                {value: 2, name: '宿舍'},
+                {value: 1, name: '医院'},
+                {value: 1, name: '值班室'},
+                {value: 6, name: '公路'},
+                {value: 1, name: '山坡'},
+                {value: 1, name: '水库边'},
+                {value: 1, name: '巷子'},
+                {value: 1, name: '户外'},
+                {value: 1, name: '牧业点'},
+                {value: 1, name: '网点西侧'},
+            ]
+        },
+        {
+            name: '发生空间',
+            type: 'pie',
+            radius: [50, 110],
+            center: ['65%', '50%'],
+            color:[
+                '#DF7401',
+                '#FA5858',
+                '#DF0101',
+                '#FA8258',
+                '#FF4000',
+                '#FF8000',
+                '#FE642E',
+                '#F7BE81',
+                '#F7D358',
+                '#F5A9A9'
+            ],
+            //roseType: 'area',
+            data: [
+                {value: 1, name: '餐厅'},
+                {value: 2, name: '厕所'},
+                {value: 2, name: '厨房'},
+                {value: 9, name: '房间'},
+                {value: 2, name: '炕上'},
+                {value: 18, name: '客厅'},
+                {value: 1, name: '楼顶'},
+                {value: 1, name: '楼梯平台'},
+                {value: 3, name: '门口'},
+                {value: 3, name: '沙发'},
+                {value: 75, name: '卧室'},
+                {value: 1, name: '院子'},
+                {value: 2, name: '走廊'},
+            ]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
